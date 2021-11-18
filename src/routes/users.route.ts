@@ -1,5 +1,5 @@
-import { Router, Request, Response, NextFunction } from "express";
-import { StatusCodes } from 'http-status-codes'
+import { NextFunction, Request, Response, Router } from "express";
+import { StatusCodes } from 'http-status-codes';
 
 // get /users
 // get /users/:uuid
@@ -16,7 +16,7 @@ usersRoute.get('/users', (req: Request, res: Response, next: NextFunction) => {
 
 usersRoute.get('/users/:uuid', (req: Request<{ uuid: string }>, res: Response, next: NextFunction) => {
     const uuid = req.params.uuid;
-    
+
     res.status(StatusCodes.OK).send({ uuid });
 });
 
